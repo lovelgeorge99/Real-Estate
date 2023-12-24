@@ -1,16 +1,15 @@
 FROM node:21-alpine
 
-RUN mkdir /app && chown node:node /app
 WORKDIR /app
 
 USER node
-COPY --chown=node:node package.json package-lock.json* ./
-# COPY package*.json ./
+
+COPY package*.json ./
 
 RUN npm install
 
-# COPY . .
-COPY --chown=node:node . .
+COPY . .
+RUN chmod +x /usr/src/app/node_modules/.bin/nodemon
 
 
 EXPOSE 8800
