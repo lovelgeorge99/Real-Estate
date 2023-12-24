@@ -1,9 +1,21 @@
-const io = require('socket.io')(8800,{
-    cors:{
-        origin:"*",
+const http = require('http');
 
-    }
-})
+const { Server } = require('socket.io');
+
+const httpServer = http.createServer();
+
+const io = new Server(httpServer, {
+  cors: {
+    origin: "*",
+  }
+});
+
+// const io = require('socket.io')(8800,{
+//     cors:{
+//         origin:"*",
+
+//     }
+// })
 
 let activeUsers=[]
 io.on("connection",(socket)=>{
@@ -37,3 +49,5 @@ io.on("connection",(socket)=>{
         io.emit('get-users',activeUsers)
     })
 })
+
+httpServer.listen(8800,()=>console.log("Listening on 8800"))
