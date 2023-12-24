@@ -9,6 +9,6 @@ services:
 build:
   stage: build
   script:
-    - docker login -u lovelgeorge -p $DOCKER_LOGIN
+    - docker login -u lovelgeorge $DOCKER_LOGIN
     - docker-compose build
     - docker-compose push

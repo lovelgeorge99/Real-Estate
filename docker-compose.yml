@@ -4,6 +4,7 @@ services:
     build:
       context: ./api
     container_name: mtl-server
+    image: lovelgeorge/realestate_backend
     ports:
       - "3000:3000"
    
@@ -12,6 +13,7 @@ services:
     build:
       context: ./client
     container_name: mtl-client
+    image: lovelgeorge/realestate_frontend
     ports:
       - "5173:5173"
     depends_on:
@@ -22,5 +24,6 @@ services:
     build:
       context: ./socket
     container_name: mtl-socket
+    image: lovelgeorge/realestate_socket
     ports:
       - "8800:8800"
