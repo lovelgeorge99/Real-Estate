@@ -1,0 +1,14 @@
+image: docker/compose
+
+variables: 
+  IMAGE_NAME: "mern-estate"
+
+services:
+  - docker:dind
+
+build:
+  stage: build
+  script:
+    - docker login -u lovelgeorge -p $DOCKER_LOGIN
+    - docker-compose build
+    - docker-compose push
