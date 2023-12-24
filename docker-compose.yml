@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ./api
+    container_name: mtl-server
+    ports:
+      - "3000:3000"
+   
+
+  client:
+    build:
+      context: ./client
+    container_name: mtl-client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+      - socket
+
+  socket:
+    build:
+      context: ./socket
+    container_name: mtl-socket
+    ports:
+      - "8800:8800"
