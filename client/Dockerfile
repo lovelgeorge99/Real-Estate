@@ -10,10 +10,10 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-RUN npm install -g serve
+# RUN npm install -g serve
 
-EXPOSE 5173
+EXPOSE 4173
 
 
-CMD ["npm","run","dev"]
+CMD ["npm","run","preview"]
 # CMD [ "serve","-n", "-s","build","-l","5173" ]

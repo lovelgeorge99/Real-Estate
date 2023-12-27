@@ -13,7 +13,7 @@ import Search from './pages/Search';
 import UserListing from './pages/UserListing';
 import ViewUsers from './pages/ViewUsers';
 import RequireAuth from './hooks/RequireAuth'
-import UserChat from './pages/UserChat';
+// import UserChat from './test/UserChat';
 import Chat from './pages/Chat';
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
           />
          <Route path='/user-listing' element={<UserListing />} />
          <Route path='/chat' element={<Chat />} />
-         <Route path='/testchat' element={<UserChat />} />
+         {/* <Route path='/testchat' element={<UserChat />} /> */}
 
           {/* admin routes */}
          <Route element={<RequireAuth />}>
