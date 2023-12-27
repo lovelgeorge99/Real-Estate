@@ -40,7 +40,7 @@ function UserChat() {
 
 
     useEffect(()=>{
-      socket.current=io('ws://localhost:8800');
+      socket.current=io('https://socket.lovelgeorge.com/');
       socket.current.emit("new-user-add",currentUser._id);
       socket.current.on('get-users',(users)=>{
         setOnlineUsers(users)

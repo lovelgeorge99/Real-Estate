@@ -127,7 +127,7 @@ function ChatBox({chat,currentUser,setSendMessage,receiveMessage,toggleSidebar }
     <div className="flex flex-col gap-10">
 
       {chat?(
-        <div>
+        <div >
          <header className="bg-white p-4 flex justify-between text-gray-700 ">
          <button onClick={toggleSidebar} id="menuButton" className="md:hidden focus:outline-none">
          <FaBars className='text-xl text-slate-600' />
@@ -136,7 +136,7 @@ function ChatBox({chat,currentUser,setSendMessage,receiveMessage,toggleSidebar }
          </header>
 
      
-      <div ref={scroll} className="h-screen overflow-y-auto  bg-gray-100 pb-36 ">
+      <div ref={scroll} className="h-screen overflow-y-auto  bg-gray-100 pb-52">
             {messages.map((message,index)=>(
              message.senderId === currentUser._id ?
                //   Outgoing Message
@@ -156,19 +156,20 @@ function ChatBox({chat,currentUser,setSendMessage,receiveMessage,toggleSidebar }
              <span className="text-right text-xs">{format(message.createdAt)}</span>
            </div>
            <div className="w-9 h-9 rounded-full flex items-center justify-center ml-2">
-             <img src="https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato" alt="My Avatar" className="w-8 h-8 rounded-full"/>
+             <img src={userData.avatar} alt="My Avatar" className="w-8 h-8 rounded-full"/>
            </div>
          </div>
             ))}
 
        </div>
 
-         <div className="container bg-white border-t border-gray-300 p-4 fixed  bottom-0 w-full">
-             <div className="flex items-center">
-                 <input onChange={handleChange} value={newMessage} type="text" placeholder="Type a message..." className="w-[80%] p-2 rounded-md border border-gray-400 focus:outline-none focus:border-blue-500"/>
+         <div className="bg-white border border-gray-300 p-4 sticky  bottom-0 ">
+             <div className="flex items-center justify-between">
+                 <input onChange={handleChange} value={newMessage} type="text" placeholder="Type a message..." className="w-full p-2 rounded-md border border-gray-400 focus:outline-none focus:border-blue-500"/>
                  <button  onClick={handleSend} className="bg-indigo-500 text-white px-4 py-2 rounded-md ml-2">Send</button>
              </div>
          </div>
+         
          
          </div>
       ):

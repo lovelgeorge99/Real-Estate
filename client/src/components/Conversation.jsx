@@ -31,7 +31,7 @@ const Conversation = ({ data, currentUser }) => {
   return (
     <div>
 
-      <div className="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+      <div className="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md max-h-screen">
               <div className="w-12 h-12 bg-gray-300 rounded-full mr-3">
                 <img src={userData.avatar} alt="User Avatar" className="w-12 h-12 rounded-full" />
               </div>

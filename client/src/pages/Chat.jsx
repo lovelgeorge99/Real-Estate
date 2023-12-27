@@ -9,6 +9,8 @@ import {io} from 'socket.io-client'
 
 function UserChat() {
     const { currentUser, loading, error } = useSelector((state) => state.user);
+    const [isSidebarVisible, setSidebarVisibility] = useState(true);
+
     const [chats,setChats]=useState([])
     const [currentChat,setCurrentChat]=useState(null)
     const [onlineUsers,setOnlineUsers]=useState([])
@@ -16,6 +18,9 @@ function UserChat() {
     const [receiveMessage,setReceiveMessage]=useState(null)
     const socket=useRef()
 
+    const toggleSidebar = () => {
+      setSidebarVisibility((prev) => !prev);
+    };
 
 
     // send message to socket server
@@ -30,7 +35,7 @@ function UserChat() {
 
 
     useEffect(()=>{
-      socket.current=io('http://localhost:8800');
+      socket.current=io('https://socket.lovelgeorge.com/');
       socket.current.emit("new-user-add",currentUser._id);
       socket.current.on('get-users',(users)=>{
         setOnlineUsers(users)
@@ -65,7 +70,8 @@ function UserChat() {
   return (
    
     <div className='fixed flex   left-0 w-full bg-white h-full text-gray-600 transition-all duration-300 border-none  sidebar'>
-    <div className="w-64 hidden sm:inline bg-white border-r border-gray-300">
+    {/* <div className="w-64 hidden sm:inline bg-white border-r border-gray-300"> */}
+    <div className={`w-64 ${isSidebarVisible ? 'sm:inline md:inline lg:inline xl:inline' : 'hidden sm:inline md:inline lg:inline xl:inline'} bg-white border-r border-gray-300`}>
      <header className="p-4 border-b border-gray-300 flex justify-between items-center bg-indigo-600 text-white">
          <h1 className="text-2xl font-semibold">Your Chats</h1>
           </header>
@@ -81,12 +87,13 @@ function UserChat() {
           </div>
     </div>
     <div className="flex-1 ">
-        <ChatBox chat={currentChat} currentUser={currentUser} setSendMessage={setSendMessage} receiveMessage={receiveMessage}/>
+    <ChatBox chat={currentChat} currentUser={currentUser} setSendMessage={setSendMessage} receiveMessage={receiveMessage} toggleSidebar={toggleSidebar}/>
            
         </div>
 
   
     </div>
+    
     
 
   )

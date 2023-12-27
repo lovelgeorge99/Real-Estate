@@ -39,8 +39,8 @@ export default function App() {
             element={<UpdateListing />}
           />
          <Route path='/user-listing' element={<UserListing />} />
-         <Route path='/chat' element={<UserChat />} />
-         <Route path='/testchat' element={<Chat />} />
+         <Route path='/chat' element={<Chat />} />
+         <Route path='/testchat' element={<UserChat />} />
 
           {/* admin routes */}
          <Route element={<RequireAuth />}>
