@@ -84,15 +84,15 @@ export default function Home() {
           <br />
           place with ease
         </h1>
-        <div className='text-white text-xs mx-auto sm:text-sm'>
+        {/* <div className='text-white text-xs mx-auto sm:text-sm'>
           Sahand Estate is the best place to find your next perfect place to
           live.
           <br />
           We have a wide range of properties for you to choose from.
-        </div>
+        </div> */}
         <Link
           to={'/search'}
-          className='text-xs sm:text-sm mx-auto text-blue-800 font-bold hover:underline'
+          className='text-xs sm:text-sm mx-auto text-white font-bold hover:underline'
         >
           Let's get started...
         </Link>
@@ -102,7 +102,7 @@ export default function Home() {
         >
           <input
             type='text'
-            placeholder='Search...'
+            placeholder='Click search or enter city,neighbourhood,address,unit...'
             className='bg-transparent focus:outline-none w-full'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

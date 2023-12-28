@@ -15,6 +15,7 @@ import ViewUsers from './pages/ViewUsers';
 import RequireAuth from './hooks/RequireAuth'
 // import UserChat from './test/UserChat';
 import Chat from './pages/Chat';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -50,6 +51,7 @@ export default function App() {
 
         </Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

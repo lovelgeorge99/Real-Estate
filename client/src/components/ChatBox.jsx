@@ -136,7 +136,7 @@ function ChatBox({chat,currentUser,setSendMessage,receiveMessage,toggleSidebar }
          </header>
 
      
-      <div ref={scroll} className="h-screen overflow-y-auto  bg-gray-100 pb-52">
+      <div ref={scroll} className="h-screen overflow-y-auto  bg-gray-100 pb-60 md:pb-52">
             {messages.map((message,index)=>(
              message.senderId === currentUser._id ?
                //   Outgoing Message
